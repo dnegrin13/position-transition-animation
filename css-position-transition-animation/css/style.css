@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "sombrero";
+    src: url("../fonts/Sombrero.ttf");
+}
+
+
+
+
 body {
-    background-color: grey;
+    /* background-color: grey; */
     min-height: 100vh;
 }
 
@@ -52,8 +60,8 @@ main {
     height: 100px;
     background-color: red;
     border-radius: 50%;
-    transition-duration: 0.2s;
-    transition-delay: 3s;
+    transition-duration: 2s;
+    transition-delay: 2s;
     transition-timing-function: ease-in-out;
 }
 
@@ -62,4 +70,109 @@ main {
     height: 300px;
     border-radius: 0%;
     background-color: chartreuse;
+    /* transform: rotate(360deg); */
+    transform: matrix(0.87, -0.5, 0, 0.87, 0, 1);
+}
+
+.Kemper {
+    width: 150%;
+    position: relative;
+    bottom: 60%;
+    right: 27%;
+    transition-duration: 2s;
+}
+
+.Kemper:hover {
+    width: 170%;
+    bottom: 85%;
+    right: 35%;
+} 
+
+
+.center {
+    text-align: center;
+}
+
+.mask {
+    margin: auto;
+    background-color: chartreuse;
+    width:16%;
+    height: 16vw;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+/* ANIMATIONS */
+
+.animation1 {
+    width: 10vw;
+    height: 5vw;
+    background-color: cyan;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Configuration de l'animation */
+
+    animation-name: move;
+    animation-duration: 4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.05,.91,1,-1.23)
+}
+
+@keyframes move {
+    0% {
+        margin-top: 0%;
+        margin-left: 0%;
+        transform: rotate(0%);
+    }
+    50% {
+        transform:matrix(0.50,0.50,0.50,1.00,0,0);
+        background-color: chocolate;
+    }
+    100% {
+        margin-left: calc(100% - 10vw);
+        transform: rotate(360deg);
+        margin-top: 50%;
+    }
+}
+.autruche {
+    width: 20%;
+    animation-name: autruche-course;
+    animation-duration: 5s;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+@keyframes autruche-course {
+    0% {
+        left: -20%;
+        transform: scale(1, 1);
+    }
+    33% {
+        left: 110%;
+        transform: scale(1, 1 );
+    }
+    66% {
+        left: 110%;
+        transform: scale(-1, 1);
+    }
+    100% {
+        left: -20%;
+        transform: scale(-1, 1);
+    }
+}
+
+.autruche img {
+    width: 100%;
+}
+
+.loading {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    font-size: 3em;
+    font-family: "sombrero";
 }
